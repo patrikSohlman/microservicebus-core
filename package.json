@@ -59,7 +59,7 @@
   "name": "microservicebus.core",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microServiceBus/microservicebus.core"
+    "url": "https://github.com/qbranch-code/microservicebus-core"
   },
   "scripts": {
     "lint": "jshint Utils.js",
