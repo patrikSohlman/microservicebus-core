@@ -51,6 +51,7 @@ function MicroServiceBusNode(settingsHelper) {
     this.onAction = null;
     this.onCreateNode = null;
     this.onCreateNodeFromMacAddress = null;
+    this.onReportLocation = null;
     // Handle settings
     var hostPrefix = 'node'; // Used for creating new hosts
     var _itineraries; // all downloaded itineries for this host
@@ -400,7 +401,9 @@ function MicroServiceBusNode(settingsHelper) {
     MicroServiceBusNode.prototype.OnCreateNodeFromMacAddress = function (callback) {
         this.onCreateNodeFromMacAddress = callback;
     };
-
+    MicroServiceBusNode.prototype.OnReportLocation = function (callback) {
+        this.onReportLocation = callback;
+    };
     // Starting up all services
     function startAllServices(itineraries, callback) {
         stopAllServices(function () {
@@ -834,7 +837,7 @@ function MicroServiceBusNode(settingsHelper) {
                                     done();
                                 }
                                 else {
-                                    var localFilePath = path.resolve(settingsHelper.serviceDirectory, scriptfileName);
+                                    var localFilePath = path.resolve(__dirname, "lib/services", scriptfileName);
                                     fs.writeFileSync(localFilePath, scriptContent);
                                     _downloadedScripts.push({ name: scriptfileName });
                                     callback(null, localFilePath, integrationId, scriptfileName);
@@ -959,7 +962,10 @@ function MicroServiceBusNode(settingsHelper) {
                                 applicationinsights.trackEvent("Tracking", { service: source, state: info });
                             }
                         });
-
+                        // Eventhander for reporting location 
+                        newMicroService.OnReportLocation(function (source, info) {
+                            
+                        });
                         callback(null, newMicroService, scriptfileName);
                     }
                     catch (error3) {
