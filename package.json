@@ -56,15 +56,15 @@
   ],
   "license": "MIT",
   "main": "MicroServiceBusNode.js",
-  "name": "microservicebus.core",
+  "name": "microservicebus-core",
   "repository": {
     "type": "git",
-    "url": "https://github.com/microServiceBus/microservicebus.core"
+    "url": "https://github.com/qbranch-code/microservicebus-core"
   },
   "scripts": {
     "lint": "jshint Utils.js",
     "succcess": "mocha Tests/successfulSignIn.js",
     "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec"
   },
-  "version": "0.0.1"
+  "version": "0.0.14"
 }
