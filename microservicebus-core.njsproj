@@ -14,7 +14,8 @@
     <ProjectGuid>{c865a0dc-ff23-4a7e-9676-c04f741a8bbc}</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>app.js</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -32,10 +33,14 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app.js" />
+    <Compile Include="index.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="lib\Applicationinsights.js" />
     <Compile Include="lib\Com.js" />
     <Compile Include="lib\DebugHost.js" />
+    <Compile Include="lib\signalR.js" />
+    <Compile Include="lib\MicroServiceBusHost.js" />
     <Compile Include="lib\protocols\AWSIOT.js" />
     <Compile Include="lib\protocols\IBMIOT.js">
       <SubType>Code</SubType>
@@ -54,22 +59,20 @@
     <Compile Include="lib\v8debug\script.js" />
     <Compile Include="lib\v8debug\signalR.js" />
     <Compile Include="lib\v8debug\utils.js" />
-    <Compile Include="MicroServiceBusNode.js" />
+    <Compile Include="lib\MicroServiceBusNode.js" />
     <Compile Include="lib\protocols\AZUREIOT.js" />
     <Compile Include="lib\protocols\REST.js" />
     <Compile Include="lib\services\microService.js" />
     <Compile Include="lib\services\sqlCommand.js" />
-    <Compile Include="test\failedSignIn.js" />
-    <Compile Include="test\successfulSignIn.js" />
-    <Compile Include="lib\Utils.js" />
+    <Compile Include="lib\utils.js" />
     <Content Include=".gitignore" />
     <Content Include=".npmignore" />
+    <Content Include="lib\templates\azuredeploy.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="lib\templates\swagger.json" />
     <Content Include="lib\templates\swaggerPathTemplate.json" />
     <Content Include="lib\templates\swaggerTemplate.json" />
-    <Compile Include="test\testData.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\handlers\" />
@@ -77,7 +80,6 @@
     <Folder Include="lib\templates\" />
     <Folder Include="lib\protocols\" />
     <Folder Include="lib\v8debug\" />
-    <Folder Include="test\" />
     <Folder Include="lib\services\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
